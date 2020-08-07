@@ -2,7 +2,7 @@
 
 #### A quick website for Dr. Sneuss to help make their job easier
 
-#### By Cody Fritz\_
+#### By Cody Fritz
 
 [Factory-Solution](https://github.com/Zentraxius/week9proj)
 
@@ -72,7 +72,7 @@ _No known bugs_
 
 ## Support and contact details
 
-Cody Fritz <clanalia55@gmail.com>\_
+Cody Fritz <clanalia55@gmail.com>\
 
 ## Technologies Used
 
@@ -80,6 +80,6 @@ _The Technologies used in the making of this software was Chrome browser, Visual
 
 ### License
 
-Copyright (c) 2020 **Cody Fritz\_**
+Copyright (c) 2020 **Cody Fritz\**
 
 MIT License
