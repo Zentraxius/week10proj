@@ -1,4 +1,4 @@
-# Hair Salon
+# Dr. Sneuss's Factory
 
 #### A quick website for Dr. Sneuss to help make their job easier
 
