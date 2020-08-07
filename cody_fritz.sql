@@ -35,7 +35,7 @@ CREATE TABLE `__efmigrationshistory` (
 
 LOCK TABLES `__efmigrationshistory` WRITE;
 /*!40000 ALTER TABLE `__efmigrationshistory` DISABLE KEYS */;
-INSERT INTO `__efmigrationshistory` VALUES ('20200807222149_Initial','2.2.4-servicing-10062');
+INSERT INTO `__efmigrationshistory` VALUES ('20200807222149_Initial','2.2.4-servicing-10062'),('20200807225634_Second','2.2.4-servicing-10062');
 /*!40000 ALTER TABLE `__efmigrationshistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `engineermachine` (
   KEY `IX_EngineerMachine_MachineId` (`MachineId`),
   CONSTRAINT `FK_EngineerMachine_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `engineers` (`EngineerId`) ON DELETE CASCADE,
   CONSTRAINT `FK_EngineerMachine_Machines_MachineId` FOREIGN KEY (`MachineId`) REFERENCES `machines` (`MachineId`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +64,7 @@ CREATE TABLE `engineermachine` (
 
 LOCK TABLES `engineermachine` WRITE;
 /*!40000 ALTER TABLE `engineermachine` DISABLE KEYS */;
+INSERT INTO `engineermachine` VALUES (1,2,1);
 /*!40000 ALTER TABLE `engineermachine` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +79,7 @@ CREATE TABLE `engineers` (
   `EngineerId` int NOT NULL AUTO_INCREMENT,
   `Name` longtext,
   PRIMARY KEY (`EngineerId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,6 +88,7 @@ CREATE TABLE `engineers` (
 
 LOCK TABLES `engineers` WRITE;
 /*!40000 ALTER TABLE `engineers` DISABLE KEYS */;
+INSERT INTO `engineers` VALUES (1,'David');
 /*!40000 ALTER TABLE `engineers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,9 +101,9 @@ DROP TABLE IF EXISTS `machines`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `machines` (
   `MachineId` int NOT NULL AUTO_INCREMENT,
-  `Type` int NOT NULL,
+  `Purpose` longtext,
   PRIMARY KEY (`MachineId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,6 +112,7 @@ CREATE TABLE `machines` (
 
 LOCK TABLES `machines` WRITE;
 /*!40000 ALTER TABLE `machines` DISABLE KEYS */;
+INSERT INTO `machines` VALUES (2,NULL);
 /*!40000 ALTER TABLE `machines` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -122,4 +125,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-07 15:23:54
+-- Dump completed on 2020-08-07 15:57:40
