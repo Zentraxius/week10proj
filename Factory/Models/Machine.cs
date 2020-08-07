@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 
-namespace NonProfit.Models
+namespace Factory.Models
 {
-  public class Donation
+  public class Machine
   {
-    public Donation()
+    public Machine()
     {
-      this.Donors = new HashSet<DonorDonation>();
+      this.Engineers = new HashSet<EngineerMachine>();
     }
-    public int DonationId { get; set; }
+    public int MachineId { get; set; }
     public int Money { get; set; }
-  public ICollection<DonorDonation> Donors {get;}
+    public ICollection<EngineerMachine> Engineers { get; }
   }
 }

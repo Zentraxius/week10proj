@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace NonProfit.Models
+namespace Factory.Models
 {
-  public class NonProfitContext : DbContext
+  public class FactoryContext : DbContext
   {
-    public virtual DbSet<Donor> Donors { get; set; }
-    public DbSet<Donation> Donations { get; set; }
-    public DbSet<DonorDonation> DonorDonation {get; set;}
+    public virtual DbSet<Engineer> Engineers { get; set; }
+    public DbSet<Machine> Machines { get; set; }
+    public DbSet<EngineerMachine> EngineerMachine { get; set; }
 
-    public NonProfitContext(DbContextOptions options) : base(options) { }
+    public FactoryContext(DbContextOptions options) : base(options) { }
   }
 }

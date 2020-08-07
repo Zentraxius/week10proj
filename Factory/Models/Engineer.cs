@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 
-namespace NonProfit.Models
+namespace Factory.Models
 {
-  public class Donor 
+  public class Engineer
   {
-    public Donor()
+    public Engineer()
     {
-      this.Donations = new HashSet<DonorDonation>();
+      this.Machines = new HashSet<EngineerMachine>();
     }
 
-    public int DonorId { get; set;}
-    public string Name { get; set;}
-    public virtual ICollection<DonorDonation> Donations {get;set;}
+    public int EngineerId { get; set; }
+    public string Name { get; set; }
+    public virtual ICollection<EngineerMachine> Machines { get; set; }
   }
 }

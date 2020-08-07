@@ -1,11 +1,11 @@
-namespace NonProfit.Models
+namespace Factory.Models
 {
-  public class DonorDonation
+  public class EngineerMachine
   {
-    public int DonorDonationId { get; set; }
-    public int DonationId {get;set;}
-    public int DonorId { get; set;}
-    public Donation Donation {get;set;}
-    public Donor Donor {get; set;}
+    public int EngineerMachineId { get; set; }
+    public int MachineId { get; set; }
+    public int EngineerId { get; set; }
+    public Machine Machine { get; set; }
+    public Engineer Engineer { get; set; }
   }
 }

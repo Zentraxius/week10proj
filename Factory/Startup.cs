@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NonProfit.Models;
+using Factory.Models;
 
-namespace NonProfit
+namespace Factory
 {
   public class Startup
   {
@@ -22,7 +22,7 @@ namespace NonProfit
     {
       services.AddMvc();
       services.AddEntityFrameworkMySql()
-        .AddDbContext<NonProfitContext>(options => options
+        .AddDbContext<FactoryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
     public void Configure(IApplicationBuilder app)
