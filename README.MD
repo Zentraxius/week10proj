@@ -1,24 +1,85 @@
-Project
-Dr. Sneuss' Factory
+# Hair Salon
 
-You've been contracted by the factory of the famous Dr. Sneuss to build an application to keep track of their machine repairs. You are to build an MVC web application to manage their engineers, and the machines they are licensed to fix. The factory manager should be able to add a list of engineers, a list of machines, and specify which engineers are licensed to repair which machines. There should be a many-to-many relationship between Engineers and Machines. An engineer can be licensed to repair (belong to) many machines (such as the Dreamweaver, the Bubblewrappinator, and the Laughbox) and a machine can have many engineers licensed to repair it.
-User Stories
+#### A quick website for Dr. Sneuss to help make their job easier
 
-    As the factory manager, I need to be able to see a list of all engineers, and I need to be able to see a list of all machines.
-    As the factory manager, I need to be able to select a engineer, see their details, and see a list of all machines that engineer is licensed to repair. I also need to be able to select a machine, see its details, and see a list of all engineers licensed to repair it.
-    As the factory manager, I need to add new engineers to our system when they are hired. I also need to add new machines to our system when they are installed.
-    As the factory manager, I should be able to add new machines even if no engineers are employed. I should also be able to add new engineers even if no machines are installed
-    As the factory manager, I need to be able to add or remove machines that a specific engineer is licensed to repair. I also need to be able to modify this relationship from the other side, and add or remove engineers from a specific machine.
-    I should be able to navigate to a splash page that lists all engineers and machines. Users should be able to click on an individual engineer or machine to see all the engineers/machines that belong to it.
+#### By Cody Fritz\_
 
-Naming
+[Factory-Solution](https://github.com/Zentraxius/week9proj)
 
-Note: You must follow the naming conventions for your project. Projects that do not follow these conventions will not be reviewed and will be returned not passing.
+## Description
 
-Use your first name and last name to name your database in the following way:
+A website specially made for Dr. Sneuss's Factory, to help manage their Engineers and their Machines.
 
-    Production Database: first_last
+## Setup/Installation Requirements
 
-Use the following name for your directory:
+- To clone this content, copy the url provided by the 'clone or download' button in GitHub
+- In command line use the command 'git clone https://github.com/Zentraxius/week9proj'
+- Open the program in a code editor (Using VisualStudioCode for reference)
+- You will need [.NET](https://dotnet.microsoft.com/download/dotnet-core/2.2) installed to run this program
+- Then install dotnet script REPL by typing 'dotnet tool installl -g dotnet-script' in the command line
+- Type dotnet build in the command line to compile the code
+- Create a .gitignore file and store the bin and obj folders in .gitignore
+- Type dotnet run in the command line to run the program, ensuring you are in the factory.solution/Factory directory
 
-    Main Project Folder: Factory
+- Run `dotnet add package Microsoft.EntityFrameworkCore -v 2.2.0` &
+  `dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.2.0`
+  in the terminal
+- Add a file called `appsetting.json` in the Factory directory.
+- In `appsetting.json` add ![appsetting.json](Assets/setup.png)
+- Fill in your `server`, `port`,`database`,`uid`, and `pwd`
+
+# Database Instructions
+
+DROP DATABASE IF EXISTS `FirstName_LastName`;
+CREATE DATABASE `FirstName_LastName`;
+
+USE `FirstName_LastName`;
+
+CREATE TABLE `Machines` (
+`MachineId` int(11) NOT NULL AUTO_INCREMENT,
+`Description` varchar(255) DEFAULT NULL,
+`EngineerId` int(11) NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (`MachineId`)
+CONSTRAINT `FK_Machines_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `Engineers` (`EngineerId`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `Engineers` (
+`EngineerId` int(11) NOT NULL AUTO_INCREMENT,
+`Description` varchar(255) DEFAULT NULL,
+PRIMARY KEY (`EngineerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+## Importing the provided Database
+
+0. These instructions are assuming you have already downloaded the project and can open it in a proper editor such as VisualStudioCode
+1. Copy the file cody_fritz.sql from the factory.solution/Factory/cody_fritz.sql location
+2. Place in easily accessible folder of your choice, in this example we will use desktop
+3. Open a database manager, in this case we will use MySql Workbench
+4. From the "Navigator" tab, and the "Administration" sub-tab, we will click on Data Import/Restore
+5. Select Import from Self-Contained-File and navigate to the desktop, select the file cody_fritz.sql.
+6. Select Start Import.
+
+## Specs
+
+| Behavior        | Input                             | Output                                       |
+| --------------- | --------------------------------- | -------------------------------------------- |
+| Hire a Engineer | User selects to add new engineer  | New engineer is added and updated to website |
+| Add a machine   | User adds a machine to a engineer | Website reflects machine for engineer        |
+
+## Known Bugs
+
+_No known bugs_
+
+## Support and contact details
+
+Cody Fritz <clanalia55@gmail.com>\_
+
+## Technologies Used
+
+_The Technologies used in the making of this software was Chrome browser, Visual Studio editor, Windows 10, C#, .Net_
+
+### License
+
+Copyright (c) 2020 **Cody Fritz\_**
+
+MIT License
