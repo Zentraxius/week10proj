@@ -14,25 +14,21 @@ namespace Factory.Controllers
     {
       _db = db;
     }
-    ////////
     public ActionResult Index()
     {
 
       return View(_db.Machines.ToList());
     }
-    ////////
     public ActionResult Details(int id)
     {
       var thisMachine = _db.Machines.Include(machine => machine.Engineers).ThenInclude(join => join.Engineer).FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
-    ////////
     public ActionResult Create()
     {
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View();
     }
-    ////////
     [HttpPost]
     public ActionResult Create(Machine machine, int EngineerId)
     {
@@ -44,14 +40,12 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    ////////
     public ActionResult Edit(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(Machines => Machines.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View(thisMachine);
     }
-    ////////
     [HttpPost]
     public ActionResult Edit(Machine machine, int EngineerId)
     {
@@ -63,14 +57,12 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    ////////
     public ActionResult AddEngineer(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View(thisMachine);
     }
-    ////////
     [HttpPost]
     public ActionResult AddEngineer(Machine machine, int EngineerId)
     {
@@ -81,13 +73,11 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    ////////
     public ActionResult Delete(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
       return View(thisMachine);
     }
-    ////////
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
@@ -96,7 +86,6 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    ////////
     [HttpPost]
     public ActionResult DeleteCategory(int joinId)
     {

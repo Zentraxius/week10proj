@@ -27,13 +27,18 @@ A website specially made for Dr. Sneuss's Factory, to help manage their Engineer
 - Add a file called `appsetting.json` in the Factory directory.
 - In `appsetting.json` add ![appsetting.json](Assets/setup.png)
 - Fill in your `server`, `port`,`database`,`uid`, and `pwd`
+- Template for appsettings.json provided below
+{
+  "ConnectionStrings": {
+      "DefaultConnection": "Server=localhost;Port=3306;database=DatabaseNameHere;uid=YourUserNameHere;pwd=YourPasswordHere;"
+  }
+}
 
 # Database Instructions
 
-DROP DATABASE IF EXISTS `FirstName_LastName`;
-CREATE DATABASE `FirstName_LastName`;
-
-USE `FirstName_LastName`;
+DROP DATABASE IF EXISTS `Cody_Fritz`;
+CREATE DATABASE `Cody_Fritz`;
+USE `Cody_Fritz`;
 
 CREATE TABLE `Machines` (
 `MachineId` int(11) NOT NULL AUTO_INCREMENT,
